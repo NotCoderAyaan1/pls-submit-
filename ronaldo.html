@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .login-container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 15px;
+        }
+
+        input {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            margin-left: 15px;
+        }
+
+        .button-container {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="button-container">
+                <button type="submit" id="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const submitBtn = document.getElementById('submit-btn');
+        const loginForm = document.getElementById('login-form');
+
+        submitBtn.addEventListener('mouseover', (event) => {
+            const buttonRect = submitBtn.getBoundingClientRect();
+
+            let newLeft = Math.random() * (window.innerWidth - buttonRect.width);
+            let newTop = Math.random() * (window.innerHeight - buttonRect.height);
+
+            // Ensure the button stays within the window boundaries
+            newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - buttonRect.width));
+            newTop = Math.max(0, Math.min(newTop, window.innerHeight - buttonRect.height));
+
+            submitBtn.style.position = 'fixed';
+            submitBtn.style.left = `${newLeft}px`;
+            submitBtn.style.top = `${newTop}px`;
+        });
+    </script>
+</body>
+</html>
